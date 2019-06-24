@@ -30,6 +30,11 @@ public class PlayerController : MonoBehaviour
 
 		_movement = (cameraForward * _movement.z + cameraRight * _movement.x);
 
+		if(Input.GetKey(KeyCode.LeftShift))
+		{
+			_movement *= 1.5f;
+		}
+		
 		bool hasHorizontalInput = !Mathf.Approximately(_horizontalAxis, 0f);
 		bool hasVerticalInput = !Mathf.Approximately(_verticalAxis, 0f);
 		bool isWalking = hasHorizontalInput || hasVerticalInput;
