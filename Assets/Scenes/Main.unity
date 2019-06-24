@@ -3411,12 +3411,12 @@ MonoBehaviour:
   m_LookaheadTime: 0
   m_LookaheadSmoothing: 10
   m_LookaheadIgnoreY: 0
-  m_XDamping: 1
-  m_YDamping: 1
-  m_ZDamping: 1
+  m_XDamping: 0.001
+  m_YDamping: 0.001
+  m_ZDamping: 0.1
   m_ScreenX: 0.5
   m_ScreenY: 0.5
-  m_CameraDistance: 8
+  m_CameraDistance: 10
   m_DeadZoneWidth: 0
   m_DeadZoneHeight: 0
   m_DeadZoneDepth: 0
@@ -3634,6 +3634,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1466555285}
   - component: {fileID: 1466555284}
+  - component: {fileID: 1466555286}
   m_Layer: 0
   m_Name: VirtualCamera
   m_TagString: Untagged
@@ -3686,13 +3687,25 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1466555283}
   m_LocalRotation: {x: 0.38268343, y: 0, z: 0, w: 0.92387956}
-  m_LocalPosition: {x: -10, y: 5.8848543, z: -8.656855}
+  m_LocalPosition: {x: -10, y: 7.299068, z: -10.071069}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 213552864}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 45, y: 0, z: 0}
+--- !u!114 &1466555286
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1466555283}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e15b734f9b436f24fa9d2cb6ab54368f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1558241786
 GameObject:
   m_ObjectHideFlags: 0
@@ -3772,7 +3785,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1558241786}
   m_LocalRotation: {x: 0.38268343, y: 0, z: 0, w: 0.92387956}
-  m_LocalPosition: {x: -10, y: 5.8848543, z: -8.656855}
+  m_LocalPosition: {x: -10, y: 7.299068, z: -10.071069}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -3886,6 +3899,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: JohnLemon
+      objectReference: {fileID: 0}
+    - target: {fileID: 5896080824379784851, guid: 705c70f98faba204f8ee41fbb21e9f93,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5896080824379482803, guid: 705c70f98faba204f8ee41fbb21e9f93,
         type: 3}

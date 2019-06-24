@@ -20,6 +20,16 @@ public class PlayerController : MonoBehaviour
 		_movement.Set(_horizontalAxis, 0f, _verticalAxis);
 		_movement.Normalize();
 
+		var cameraForward = Camera.main.transform.forward;
+		cameraForward.y = 0;
+		cameraForward = cameraForward.normalized;
+
+		var cameraRight = Camera.main.transform.right;
+		cameraRight.y = 0;
+		cameraRight = cameraRight.normalized;
+
+		_movement = (cameraForward * _movement.z + cameraRight * _movement.x);
+
 		bool hasHorizontalInput = !Mathf.Approximately(_horizontalAxis, 0f);
 		bool hasVerticalInput = !Mathf.Approximately(_verticalAxis, 0f);
 		bool isWalking = hasHorizontalInput || hasVerticalInput;
@@ -34,6 +44,4 @@ public class PlayerController : MonoBehaviour
 		_rigidbody.MovePosition(_rigidbody.position + _movement * _animator.deltaPosition.magnitude);
 		_rigidbody.MoveRotation(_rotation);
 	}
-
-
 }
