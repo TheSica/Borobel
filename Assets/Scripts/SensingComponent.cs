@@ -6,7 +6,6 @@ public class SensingComponent : MonoBehaviour
 {
 	private const float SensingRadius = 1f;
 
-
 	private void Update()
 	{
 		if (Input.GetKeyDown(KeyCode.R))
