@@ -6,11 +6,18 @@ public class ReadableInteractible : Quest, IInteractible
 
 	public void Interact()
 	{
-		if (questState == QuestState.WaitingForStart)
+		switch (questState)
 		{
-			GameManager.Instance.Show3DObject(_readeableScriptableObject.objectToShow, _readeableScriptableObject.eulerRotationOffset, _readeableScriptableObject.textToDisplay);
-
-			StartQuest();
+			case QuestState.Unknown:
+				break;
+			case QuestState.WaitingForStart:
+				GameManager.Instance.Show3DObject(_readeableScriptableObject.objectToShow, _readeableScriptableObject.eulerRotationOffset, _readeableScriptableObject.textToDisplay);
+				OnQuestInterracted();
+				break;
+			case QuestState.Started:
+			case QuestState.Completed:
+				GameManager.Instance.Show3DObject(_readeableScriptableObject.objectToShow, _readeableScriptableObject.eulerRotationOffset, _readeableScriptableObject.textToDisplay);
+				break;
 		}
 	}
 }

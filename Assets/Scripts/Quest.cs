@@ -1,12 +1,13 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿
+using System;
 using UnityEngine;
 using UnityEngine.Assertions;
 
-[System.Serializable]
+[Serializable]
 public class Quest : MonoBehaviour
 {
-	public event System.Action QuestFinished = delegate { };
+	public event Action QuestInterracted = delegate { };
+
 	public QuestGoal questGoal;
 
 	public enum QuestState
@@ -19,7 +20,10 @@ public class Quest : MonoBehaviour
 
 	public QuestState questState { get; private set; }
 
-
+	public void TriggerQuest()
+	{
+		questState = QuestState.WaitingForStart;
+	}
 
 	public void StartQuest()
 	{
@@ -27,10 +31,18 @@ public class Quest : MonoBehaviour
 		questState = QuestState.Started;
 	}
 
-	private void CompleteQuest()
+	public void CompleteQuest()
 	{
 		Assert.IsTrue(questState == QuestState.Started, "Cannot complete a quest that has not started");
 
 		questState = QuestState.Completed;
+	}
+
+	protected virtual void OnQuestInterracted()
+	{
+		// Make a temporary copy of the event to avoid possibility of
+		// a race condition if the last subscriber unsubscribes
+		// immediately after the null check and before the event is raised.
+		QuestInterracted?.Invoke();
 	}
 }

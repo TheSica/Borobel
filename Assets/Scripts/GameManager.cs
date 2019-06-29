@@ -6,6 +6,8 @@ public class GameManager : Singleton<GameManager>
 	private ModelViewController _modelViewController;
 	[SerializeField]
 	private GameHUD _gameHUD;
+	[SerializeField]
+	private QuestManager _questManager;
 
 	private void Start()
 	{
@@ -20,6 +22,11 @@ public class GameManager : Singleton<GameManager>
 		_gameHUD.Setup(textToDisplay);
 	}
 
+	public void FinishGame()
+	{
+		Debug.Log($"GameFinished");
+	}
+
 	private void OnEscapeButtonPressed()
 	{
 		Time.timeScale = 1f;
@@ -31,6 +38,4 @@ public class GameManager : Singleton<GameManager>
 		_modelViewController.Clear();
 		_gameHUD.Clear();
 	}
-
-
 }
