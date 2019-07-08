@@ -2,12 +2,12 @@
 
 public class GameManager : Singleton<GameManager>
 {
-	[SerializeField]
-	private ModelViewController _modelViewController;
-	[SerializeField]
-	private GameHUD _gameHUD;
-	[SerializeField]
-	private QuestManager _questManager;
+	[SerializeField] private PlayerController _player;
+	[SerializeField] private ModelViewController _modelViewController;
+	[SerializeField] private GameHUD _gameHUD;
+	[SerializeField] private QuestManager _questManager;
+
+	public Transform PlayerTransform => _player.transform;
 
 	private void Start()
 	{
