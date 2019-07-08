@@ -12,7 +12,7 @@ public class ReadableInteractible : Quest, IInteractible
 				break;
 			case QuestState.WaitingForStart:
 				GameManager.Instance.Show3DObject(_readeableScriptableObject.objectToShow, _readeableScriptableObject.eulerRotationOffset, _readeableScriptableObject.textToDisplay);
-				OnQuestInterracted();
+				OnQuestInterracted(this);
 				break;
 			case QuestState.Started:
 			case QuestState.Completed:

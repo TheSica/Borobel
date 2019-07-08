@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class DoorInteractible : MonoBehaviour, IInteractible
+public class DoorInteractible : Quest, IInteractible
 {
 	private const string DoorAnimatorParameter = "OpenDoor";
 	[SerializeField] private Animator _animator;
@@ -9,8 +9,20 @@ public class DoorInteractible : MonoBehaviour, IInteractible
 
 	public void Interact()
 	{
-		Debug.Log("Interacted with a door");
-		_isDoorOpen = !_isDoorOpen;
-		_animator.SetBool(DoorAnimatorParameter, _isDoorOpen);
+		switch (questState)
+		{
+			case QuestState.Unknown:
+				break;
+			case QuestState.WaitingForStart:
+				OnQuestInterracted(this);
+				_isDoorOpen = !_isDoorOpen;
+				_animator.SetBool(DoorAnimatorParameter, _isDoorOpen);
+				break;
+			case QuestState.Started:
+			case QuestState.Completed:
+				_isDoorOpen = !_isDoorOpen;
+				_animator.SetBool(DoorAnimatorParameter, _isDoorOpen);
+				break;
+		}
 	}
 }

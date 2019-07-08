@@ -6,7 +6,7 @@ using UnityEngine.Assertions;
 [Serializable]
 public class Quest : MonoBehaviour
 {
-	public event Action QuestInterracted = delegate { };
+	public event Action<IInteractible> QuestInterracted = delegate { };
 
 	public QuestGoal questGoal;
 
@@ -38,11 +38,11 @@ public class Quest : MonoBehaviour
 		questState = QuestState.Completed;
 	}
 
-	protected virtual void OnQuestInterracted()
+	protected virtual void OnQuestInterracted(IInteractible interactible)
 	{
 		// Make a temporary copy of the event to avoid possibility of
 		// a race condition if the last subscriber unsubscribes
 		// immediately after the null check and before the event is raised.
-		QuestInterracted?.Invoke();
+		QuestInterracted?.Invoke(interactible);
 	}
 }

@@ -235,6 +235,7 @@ Transform:
   m_Children:
   - {fileID: 593678956}
   - {fileID: 573449854}
+  - {fileID: 5045423457769277780}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -253,6 +254,7 @@ MonoBehaviour:
   quests:
   - {fileID: 593678958}
   - {fileID: 573449856}
+  - {fileID: 5086116919372985561}
 --- !u!1 &495585729
 GameObject:
   m_ObjectHideFlags: 0
@@ -331,7 +333,7 @@ GameObject:
   - component: {fileID: 573449855}
   - component: {fileID: 573449856}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: SecondQuest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -106411,7 +106413,7 @@ Transform:
   m_LocalScale: {x: -1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3674741052606742051}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: -90.00001, z: 0}
 --- !u!4 &3670393323205201496
 Transform:
@@ -106439,7 +106441,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3674741052606742051}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: -90.00001, z: 0}
 --- !u!4 &3670426498351122124
 Transform:
@@ -110508,7 +110510,6 @@ Transform:
   - {fileID: 3670393323205201496}
   - {fileID: 3670393321955632992}
   - {fileID: 3670393322474752405}
-  - {fileID: 5045423457769277780}
   - {fileID: 3670393323418010283}
   - {fileID: 3670393323202583860}
   m_Father: {fileID: 3674741053368887869}
@@ -120078,14 +120079,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9007299103662163367}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -1.228, y: 0, z: 12.282}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4011600301700718437}
   - {fileID: 6681958345517683190}
-  m_Father: {fileID: 3674741052606742051}
-  m_RootOrder: 8
+  m_Father: {fileID: 375537491}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5072174034077912024
 GameObject:
@@ -120115,6 +120116,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee583e5478e861c418c27952def7fbf5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  questGoal:
+    goalType: 2
   _animator: {fileID: 3571310051092675320}
 --- !u!23 &5095502300190182746
 MeshRenderer:
@@ -133905,7 +133908,7 @@ GameObject:
   - component: {fileID: 5045423457769277780}
   - component: {fileID: 3571310051092675320}
   m_Layer: 0
-  m_Name: MovableDoor (1)
+  m_Name: ThirdQuest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
