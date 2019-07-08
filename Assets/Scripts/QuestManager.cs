@@ -18,7 +18,7 @@ public class QuestManager : MonoBehaviour
 		quests[_currentQuestIndex].TriggerQuest();
 	}
 
-	private void TriggerNextQuest()
+	private void TriggerNextQuestOrFinishGame()
 	{
 		if(_currentQuestIndex + 1 >= quests.Count)
 		{
@@ -35,11 +35,18 @@ public class QuestManager : MonoBehaviour
 	{
 		quests[_currentQuestIndex].StartQuest();
 
-		if (quests[_currentQuestIndex].questGoal.goalType == QuestGoal.GoalType.Read)
+		switch (quests[_currentQuestIndex].questGoal.goalType)
 		{
-			quests[_currentQuestIndex].CompleteQuest();
-			TriggerNextQuest();
+			case QuestGoal.GoalType.Read:
+				quests[_currentQuestIndex].CompleteQuest();
+				TriggerNextQuestOrFinishGame();
+				break;
+			case QuestGoal.GoalType.Pickup:
+				quests[_currentQuestIndex].CompleteQuest();
+				TriggerNextQuestOrFinishGame();
+				break;
+			case QuestGoal.GoalType.Use:
+				break;
 		}
 	}
-
 }
